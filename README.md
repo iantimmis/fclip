@@ -14,7 +14,7 @@
 
 - `fcopy <file_or_directory>` - Copy a file or directory to the clipboard
 - `fpaste` - Paste the copied file or directory to the current directory
-- `fmove <file_or_directory>` - Move a file or directory (copy to clipboard and delete original on paste)
+- `fcut <file_or_directory>` - Move a file or directory (copy to clipboard and delete original on paste)
 - `fstatus` - Show current clipboard contents
 - `fclear` - Clear the clipboard
 
@@ -42,7 +42,7 @@ fcopy my_folder
 fpaste  # Creates my_folder in current directory
 
 # Move a file (deletes original when pasted)
-fmove old_file.txt
+fcut old_file.txt
 fpaste  # Creates old_file.txt here and deletes it from original location
 
 # Check clipboard status

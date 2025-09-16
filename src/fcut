@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# fmove - Move files or directories via fclip clipboard
-# Usage: fmove <file_or_directory>
+# fcut - Move files or directories via fclip clipboard
+# Usage: fcut <file_or_directory>
 
 if [ $# -eq 0 ]; then
-    echo "Usage: fmove <file_or_directory>"
+    echo "Usage: fcut <file_or_directory>"
     exit 1
 fi
 
