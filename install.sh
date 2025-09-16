@@ -8,11 +8,11 @@ BIN_DIR="$HOME/.local/bin"
 mkdir -p "$BIN_DIR"
 
 # Copy the commands
-cp fcopy "$BIN_DIR/"
-cp fpaste "$BIN_DIR/"
-cp fmove "$BIN_DIR/"
-cp fstatus "$BIN_DIR/"
-cp fclear "$BIN_DIR/"
+cp src/fcopy "$BIN_DIR/"
+cp src/fpaste "$BIN_DIR/"
+cp src/fmove "$BIN_DIR/"
+cp src/fstatus "$BIN_DIR/"
+cp src/fclear "$BIN_DIR/"
 
 # Make them executable
 chmod +x "$BIN_DIR/fcopy"
