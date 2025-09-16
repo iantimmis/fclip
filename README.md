@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo.png" width="500">
+  <img src="img/logo.png" width="500">
   <p>A simple file clipboard system for the terminal that allows you to copy, paste, and move files and directories between different terminal sessions.</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
