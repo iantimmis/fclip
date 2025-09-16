@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# fstatus - Show current fclip clipboard status
+# Usage: fstatus
+
+CLIPBOARD_DIR="$HOME/.fclip"
+CLIPBOARD_DATA="$CLIPBOARD_DIR/data"
+CLIPBOARD_INFO="$CLIPBOARD_DIR/info"
+CLIPBOARD_MOVE="$CLIPBOARD_DIR/move_source"
+
+if [ ! -d "$CLIPBOARD_DIR" ] || [ ! -f "$CLIPBOARD_INFO" ]; then
+    echo "Clipboard is empty"
+    exit 0
+fi
+
+# Read clipboard info
+TYPE=$(head -n 1 "$CLIPBOARD_INFO")
+BASENAME=$(tail -n 1 "$CLIPBOARD_INFO")
+
+if [ ! -d "$CLIPBOARD_DATA" ]; then
+    echo "Clipboard data is corrupted"
+    exit 1
+fi
+
+echo "Clipboard contents:"
+echo "  Type: $TYPE"
+echo "  Name: $BASENAME"
+
+if [ -f "$CLIPBOARD_MOVE" ]; then
+    SOURCE_PATH=$(cat "$CLIPBOARD_MOVE")
+    echo "  Operation: move (from $SOURCE_PATH)"
+else
+    echo "  Operation: copy"
+fi
+
+# Show size info
+if [ "$TYPE" = "dir" ]; then
+    SIZE=$(du -sh "$CLIPBOARD_DATA/$BASENAME" 2>/dev/null | cut -f1)
+    ITEM_COUNT=$(find "$CLIPBOARD_DATA/$BASENAME" -type f 2>/dev/null | wc -l | tr -d ' ')
+    echo "  Size: $SIZE ($ITEM_COUNT files)"
+else
+    SIZE=$(du -sh "$CLIPBOARD_DATA/$BASENAME" 2>/dev/null | cut -f1)
+    echo "  Size: $SIZE"
+fi

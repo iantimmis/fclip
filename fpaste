@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# fpaste - Paste files or directories from fclip clipboard
+# Usage: fpaste
+
+CLIPBOARD_DIR="$HOME/.fclip"
+CLIPBOARD_DATA="$CLIPBOARD_DIR/data"
+CLIPBOARD_INFO="$CLIPBOARD_DIR/info"
+CLIPBOARD_MOVE="$CLIPBOARD_DIR/move_source"
+
+if [ ! -d "$CLIPBOARD_DIR" ] || [ ! -f "$CLIPBOARD_INFO" ]; then
+    echo "Error: No files in clipboard. Use 'fcopy' or 'fmove' first."
+    exit 1
+fi
+
+# Read clipboard info
+TYPE=$(head -n 1 "$CLIPBOARD_INFO")
+BASENAME=$(tail -n 1 "$CLIPBOARD_INFO")
+
+if [ ! -d "$CLIPBOARD_DATA" ]; then
+    echo "Error: Clipboard data is corrupted"
+    exit 1
+fi
+
+# Check if target already exists
+if [ -e "$BASENAME" ]; then
+    echo "Error: '$BASENAME' already exists in current directory"
+    exit 1
+fi
+
+if [ "$TYPE" = "dir" ]; then
+    # Paste directory
+    cp -r "$CLIPBOARD_DATA/$BASENAME" ./
+    echo "Pasted directory '$BASENAME' to current directory"
+elif [ "$TYPE" = "file" ]; then
+    # Paste file
+    cp "$CLIPBOARD_DATA/$BASENAME" ./
+    echo "Pasted file '$BASENAME' to current directory"
+else
+    echo "Error: Unknown clipboard type"
+    exit 1
+fi
+
+# If this was a move operation, delete the original
+if [ -f "$CLIPBOARD_MOVE" ]; then
+    SOURCE_PATH=$(cat "$CLIPBOARD_MOVE")
+    if [ -e "$SOURCE_PATH" ]; then
+        rm -rf "$SOURCE_PATH"
+        echo "Deleted original from '$SOURCE_PATH'"
+    fi
+    rm -f "$CLIPBOARD_MOVE"
+fi

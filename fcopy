@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# fcopy - Copy files or directories to fclip clipboard
+# Usage: fcopy <file_or_directory>
+
+if [ $# -eq 0 ]; then
+    echo "Usage: fcopy <file_or_directory>"
+    exit 1
+fi
+
+CLIPBOARD_DIR="$HOME/.fclip"
+CLIPBOARD_DATA="$CLIPBOARD_DIR/data"
+CLIPBOARD_INFO="$CLIPBOARD_DIR/info"
+
+# Create clipboard directory if it doesn't exist
+mkdir -p "$CLIPBOARD_DIR"
+
+# Get the target file/directory
+TARGET="$1"
+
+if [ ! -e "$TARGET" ]; then
+    echo "Error: '$TARGET' does not exist"
+    exit 1
+fi
+
+# Clear previous clipboard
+rm -rf "$CLIPBOARD_DATA"
+mkdir -p "$CLIPBOARD_DATA"
+
+# Get absolute path and basename
+ABS_PATH=$(realpath "$TARGET")
+BASENAME=$(basename "$TARGET")
+
+if [ -d "$TARGET" ]; then
+    # Copy directory
+    cp -r "$TARGET" "$CLIPBOARD_DATA/"
+    echo "dir" > "$CLIPBOARD_INFO"
+    echo "Copied directory '$TARGET' to clipboard"
+else
+    # Copy file
+    cp "$TARGET" "$CLIPBOARD_DATA/"
+    echo "file" > "$CLIPBOARD_INFO"
+    echo "Copied file '$TARGET' to clipboard"
+fi
+
+# Store the basename for reference
+echo "$BASENAME" >> "$CLIPBOARD_INFO"

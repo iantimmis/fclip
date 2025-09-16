@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# fclear - Clear the fclip clipboard
+# Usage: fclear
+
+CLIPBOARD_DIR="$HOME/.fclip"
+
+if [ ! -d "$CLIPBOARD_DIR" ]; then
+    echo "Clipboard is already empty"
+    exit 0
+fi
+
+# Remove clipboard directory entirely
+rm -rf "$CLIPBOARD_DIR"
+
+echo "Clipboard cleared"
