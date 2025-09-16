@@ -115,7 +115,7 @@ install_fclip() {
         error "Source directory not found: $src_dir"
     fi
     
-    for script in fcopy fpaste fcut fstatus fclear; do
+    for script in fclip fcopy fpaste fcut fstatus fclear; do
         if [ -f "$src_dir/$script" ]; then
             cp "$src_dir/$script" "$INSTALL_DIR/"
             chmod +x "$INSTALL_DIR/$script"
@@ -151,6 +151,8 @@ check_path() {
 show_usage() {
     echo ""
     echo "Usage:"
+    echo "  fclip --help               - Show help and examples"
+    echo "  fclip --version            - Show version"
     echo "  fcopy <file_or_directory>  - Copy to clipboard"
     echo "  fpaste                     - Paste from clipboard"
     echo "  fcut <file_or_directory>   - Move via clipboard"

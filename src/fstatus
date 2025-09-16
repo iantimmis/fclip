@@ -7,6 +7,7 @@ CLIPBOARD_DIR="$HOME/.fclip"
 CLIPBOARD_DATA="$CLIPBOARD_DIR/data"
 CLIPBOARD_INFO="$CLIPBOARD_DIR/info"
 CLIPBOARD_MOVE="$CLIPBOARD_DIR/move_source"
+CLIPBOARD_SOURCE="$CLIPBOARD_DIR/source"
 
 if [ ! -d "$CLIPBOARD_DIR" ] || [ ! -f "$CLIPBOARD_INFO" ]; then
     echo "Clipboard is empty"
@@ -29,6 +30,9 @@ echo "  Name: $BASENAME"
 if [ -f "$CLIPBOARD_MOVE" ]; then
     SOURCE_PATH=$(cat "$CLIPBOARD_MOVE")
     echo "  Operation: move (from $SOURCE_PATH)"
+elif [ -f "$CLIPBOARD_SOURCE" ]; then
+    SOURCE_PATH=$(cat "$CLIPBOARD_SOURCE")
+    echo "  Operation: copy (from $SOURCE_PATH)"
 else
     echo "  Operation: copy"
 fi

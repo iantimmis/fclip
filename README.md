@@ -12,6 +12,8 @@
 
 ## Commands
 
+- `fclip --version` - Show version information
+- `fclip --help` - Show help and usage examples
 - `fcopy <file_or_directory>` - Copy a file or directory to the clipboard
 - `fpaste` - Paste the copied file or directory to the current directory
 - `fcut <file_or_directory>` - Move a file or directory (copy to clipboard and delete original on paste)
@@ -29,6 +31,10 @@ Or download manually from [releases](https://github.com/iantimmis/fclip/releases
 ## Usage Examples
 
 ```bash
+# Get help and version info
+fclip --help
+fclip --version
+
 # Copy a file
 fcopy example.txt
 

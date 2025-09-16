@@ -11,6 +11,7 @@ fi
 CLIPBOARD_DIR="$HOME/.fclip"
 CLIPBOARD_DATA="$CLIPBOARD_DIR/data"
 CLIPBOARD_INFO="$CLIPBOARD_DIR/info"
+CLIPBOARD_SOURCE="$CLIPBOARD_DIR/source"
 
 # Create clipboard directory if it doesn't exist
 mkdir -p "$CLIPBOARD_DIR"
@@ -43,5 +44,6 @@ else
     echo "Copied file '$TARGET' to clipboard"
 fi
 
-# Store the basename for reference
+# Store the basename and source path for reference
 echo "$BASENAME" >> "$CLIPBOARD_INFO"
+echo "$ABS_PATH" > "$CLIPBOARD_SOURCE"
