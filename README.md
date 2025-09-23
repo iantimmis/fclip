@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="img/logo.png" width="500">
+  <img src="docs/img/logo.png" width="500">
   <p>A simple file clipboard system for the terminal that allows you to copy, paste, and move files and directories between different terminal sessions.</p>
 
 [![GitHub release](https://img.shields.io/github/v/release/iantimmis/fclip)](https://github.com/iantimmis/fclip/releases)
