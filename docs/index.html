@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fclip - File Clipboard for Terminal</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .hero img {
+            max-width: 400px;
+            height: auto;
+        }
+        .install-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        .install-command {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .badges {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .badges img {
+            margin: 2px;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        h1, h2 {
+            color: #2d3748;
+        }
+        .button {
+            display: inline-block;
+            background: #3182ce;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px 5px;
+        }
+        .button:hover {
+            background: #2c5aa0;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="../img/logo.png" alt="fclip logo">
+        <h1>fclip</h1>
+        <p>A simple file clipboard system for the terminal that allows you to copy, paste, and move files and directories between different terminal sessions.</p>
+        
+        <div class="badges">
+            <img src="https://img.shields.io/github/v/release/iantimmis/fclip" alt="Release">
+            <img src="https://img.shields.io/github/downloads/iantimmis/fclip/total" alt="Downloads">
+            <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Linux-blue.svg" alt="Platform">
+            <img src="https://img.shields.io/badge/Shell-Bash-green.svg" alt="Shell">
+            <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🚀 Quick Install</h2>
+        <div class="install-command">curl -LsSf https://iantimmis.github.io/fclip/install.sh | sh</div>
+        
+        <p><strong>Commands available after install:</strong></p>
+        <ul>
+            <li><code>fcopy &lt;file&gt;</code> - Copy file/directory to clipboard</li>
+            <li><code>fpaste</code> - Paste from clipboard</li>
+            <li><code>fcut &lt;file&gt;</code> - Move file/directory (deletes original on paste)</li>
+            <li><code>fstatus</code> - Show clipboard contents</li>
+            <li><code>fclear</code> - Clear clipboard</li>
+            <li><code>fclip --help</code> - Show help</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📖 Documentation</h2>
+        <a href="https://github.com/iantimmis/fclip" class="button">View on GitHub</a>
+        <a href="https://github.com/iantimmis/fclip/releases" class="button">Download Releases</a>
+    </div>
+
+    <div class="section">
+        <h2>💡 Example Usage</h2>
+        <div class="install-box">
+# Copy a file<br>
+fcopy document.pdf<br><br>
+
+# In another terminal/directory<br>
+fpaste  # Creates document.pdf here<br><br>
+
+# Move a directory<br>
+fcut old_project/<br>
+fpaste  # Moves old_project/ here<br><br>
+
+# Check what's in clipboard<br>
+fstatus
+        </div>
+    </div>
+</body>
+</html>
