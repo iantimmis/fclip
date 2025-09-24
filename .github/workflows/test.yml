@@ -41,6 +41,7 @@ jobs:
         echo "test content" > test_smoke.txt
         ./src/fcopy test_smoke.txt
         ./src/fstatus
+        rm test_smoke.txt  # Remove so paste can work
         ./src/fpaste
         ./src/fclear
         ./src/fclip --version
