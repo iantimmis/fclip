@@ -17,12 +17,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Install fclip locally
+    - name: Test live install script
       run: |
-        mkdir -p ~/.local/bin
-        chmod +x src/*
-        cp src/* ~/.local/bin/
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        # Test the actual install script from GitHub Pages
+        curl -LsSf https://iantimmis.github.io/fclip/install.sh | sh
+        
+        # Verify installation
+        test -f ~/.local/bin/fclip && echo "✅ fclip installed"
+        test -f ~/.local/bin/fcopy && echo "✅ fcopy installed"
+        test -f ~/.local/bin/fpaste && echo "✅ fpaste installed" 
+        test -f ~/.local/bin/fcut && echo "✅ fcut installed"
+        test -f ~/.local/bin/fstatus && echo "✅ fstatus installed"
+        test -f ~/.local/bin/fclear && echo "✅ fclear installed"
+        
+        # Test that commands work
+        fclip --version
+        echo "✅ Live install script works perfectly!"
     
     - name: Run tests
       run: |

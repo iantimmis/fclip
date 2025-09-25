@@ -3,7 +3,7 @@
 # fclip - File clipboard system main command
 # Usage: fclip [--version|--help]
 
-VERSION="1.0.0"
+VERSION="1.1.0"
 
 show_help() {
     echo "fclip v$VERSION - File clipboard system for the terminal"
