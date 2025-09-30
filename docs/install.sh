@@ -153,6 +153,8 @@ show_usage() {
     echo "Usage:"
     echo "  fclip --help               - Show help and examples"
     echo "  fclip --version            - Show version"
+    echo "  fclip --update             - Update to latest version"
+    echo "  fclip --uninstall          - Uninstall fclip"
     echo "  fcopy <file_or_directory>  - Copy to clipboard"
     echo "  fpaste                     - Paste from clipboard"
     echo "  fcut <file_or_directory>   - Move via clipboard"
