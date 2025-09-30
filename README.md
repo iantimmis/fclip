@@ -1,6 +1,6 @@
 <div align="center">
   <img src="docs/img/logo.png" width="500">
-  <p>A simple file clipboard system for the terminal that allows you to copy, paste, and move files and directories between different terminal sessions.</p>
+  <p>Hate the ergonomics of <code>mv</code> and <code>cp</code>? Try <code>fclip</code>! A simple file clipboard system for the terminal that allows you to copy, paste, and move files and directories between different terminal sessions.</p>
 
 [![CI](https://github.com/iantimmis/fclip/workflows/Test/badge.svg)](https://github.com/iantimmis/fclip/actions)
 [![GitHub release](https://img.shields.io/github/v/release/iantimmis/fclip)](https://github.com/iantimmis/fclip/releases)
