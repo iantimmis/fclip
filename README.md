@@ -4,10 +4,10 @@
 
 [![CI](https://github.com/iantimmis/fclip/workflows/Test/badge.svg)](https://github.com/iantimmis/fclip/actions)
 [![GitHub release](https://img.shields.io/github/v/release/iantimmis/fclip)](https://github.com/iantimmis/fclip/releases)
-<!--[![Downloads](https://img.shields.io/github/downloads/iantimmis/fclip/total)](https://github.com/iantimmis/fclip/releases)-->
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux-blue.svg)](https://github.com/iantimmis/fclip)
 [![Shell](https://img.shields.io/badge/Shell-Bash-green.svg)](https://www.gnu.org/software/bash/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!--[![Downloads](https://img.shields.io/github/downloads/iantimmis/fclip/total)](https://github.com/iantimmis/fclip/releases)-->
 
 </div>
 
